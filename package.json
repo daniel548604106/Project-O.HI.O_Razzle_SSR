@@ -6,7 +6,9 @@
     "start": "razzle start",
     "build": "razzle build",
     "test": "razzle test --env=jsdom",
-    "start:prod": "NODE_ENV=production node build/server.js"
+    "start:prod": "NODE_ENV=production node build/server.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "axios": "^0.21.4",
@@ -23,6 +25,12 @@
     "typescript": "^4.5.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@storybook/addon-actions": "^6.4.13",
+    "@storybook/addon-essentials": "^6.4.13",
+    "@storybook/addon-links": "^6.4.13",
+    "@storybook/react": "^6.4.13",
+    "babel-loader": "^8.2.3",
     "babel-preset-razzle": "4.2.13",
     "html-webpack-plugin": "^4.5.2",
     "mini-css-extract-plugin": "^0.9.0",

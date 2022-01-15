@@ -1,0 +1,82 @@
+import PropTypes from 'prop-types';
+import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
+import classes from './productCard.module.scss';
+
+const ProductCard = ({ product }) => {
+  const directToProduct = () => {
+    console.log("hihi");
+  };
+  const addItemToFavorite = (e, id) => {
+    console.log("hihi");
+  };
+  const isFavorite = true;
+
+  return (
+    <div className={classes.root}>
+      <div className={classes.label}>
+        <p className={classes.new}>新品</p>
+        {product.discountPrice && <p className={classes.discount}>{"qss"}</p>}
+      </div>
+      {product ? (
+        <div
+          className={classes.card}
+          key={product.id}
+          onClick={() => directToProduct()}
+          style={{ textDecoration: "none" }}
+        >
+          <div className={classes.mainPicture}>
+            <img
+              className={classes.media}
+              loading="lazy"
+              data-src={product.images[0]}
+              alt={product.name}
+            />
+
+            <div
+              onClick={(e) => addItemToFavorite(e, product._id)}
+              className={`${classes.heartIcon} ${
+                isFavorite && classes.activeHeartIcon
+              }`}
+            >
+              add
+            </div>
+          </div>
+          <div className={classes.cardContent}>
+            <h2 className={classes.productName}>{product.name}</h2>
+            <div>
+              <h2 className={classes.brandName}>{product.publishedBy.name}</h2>
+              <div style={{ display: "flex", alignItems: "flex-end" }}>
+                <span className={classes.discountPrice}>NTD</span>
+                {product.discountPrice && (
+                  <p className={classes.discountPrice}>
+                    ${product.discountPrice}
+                  </p>
+                )}
+                <p
+                  className={`
+                    ${classes.originalPrice} 
+                    ${!product.discountPrice && classes.noDiscountPrice}
+                  `}
+                  style={{
+                    textDecoration: product.discountPrice
+                      ? "line-through"
+                      : " none",
+                  }}
+                >
+                  ${product.fullPrice}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <>asd</>
+      )}
+    </div>
+  );
+};
+
+export { ProductCard };
