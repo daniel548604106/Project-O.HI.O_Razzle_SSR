@@ -89,6 +89,14 @@ razzl examples link : https://github.com/jaredpalmer/razzle/tree/master/examples
 
     ```
 
+- Optimization
+
+```js
+
+ npm i --save-dev razzle-plugin-compression
+
+```
+
 Deployment : Vercel
 link: https://razzlejs.org/deployment-options/vercel
 利用 vercel 部署，可在官網找到 vercel.json 設定檔，在 root folder 建立 並透過 vercel cli 下 'vercel' command ，即可順利部署成功

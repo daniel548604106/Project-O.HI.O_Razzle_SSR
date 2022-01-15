@@ -3,11 +3,16 @@ import './index.css';
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
+import ImageSlider from '@/modules/imageSlider/ImageSlider';
 import { ProductCard } from '@/modules/productCard/ProductCard';
 import { fetchBanners, getDiscountedProducts } from '@/redux/actions/homeAction.ts';
 
 const Home = () => {
   const { banners, discountedProducts } = useSelector((state) => state.home);
+  const bannerSlides = banners?.map(({ image, _id }) => ({
+    img: image,
+    id: _id,
+  }));
   useEffect(() => {
     console.log(discountedProducts);
   }, [discountedProducts]);
@@ -16,16 +21,8 @@ const Home = () => {
       <div
         style={{ display: "flex", maxWidth: "100vw", overflowX: "scroll" }}
         className="Home"
-      >
-        {banners.map(({ image, _id }) => (
-          <img
-            style={{ width: "100vw", height: "100px", objectFit: "cover" }}
-            key={_id}
-            src={image}
-            alt="banners"
-          />
-        ))}
-      </div>
+      ></div>
+      <ImageSlider slides={bannerSlides} />
       {discountedProducts.map((product) => (
         <ProductCard
           customStyle={{ width: "300px", height: "300px" }}
