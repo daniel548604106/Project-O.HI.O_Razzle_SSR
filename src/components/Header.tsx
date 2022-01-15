@@ -9,24 +9,28 @@ const Header = () => {
   const handleSearchInput = () => {
     console.log("iihi");
   };
+
+  const handleInputKeyDown = (e) => {
+    searchInput.length > 0 && e.key === "Enter" ? handleSearchInput() : "";
+  };
   return (
     <div className={classes["header-container"]}>
-      <img src={logo} />
-      <div>
-        <form action="">
-          <input
-            onChange={(e) => setSearchInput(e.target.value)}
-            type="text"
-            onKeyDown={(e) =>
-              searchInput.length > 0 && e.key === "Enter"
-                ? handleSearchInput()
-                : ""
-            }
-            value={searchInput}
-            placeholder="探索好設計"
-          />
-        </form>
-        <button onClick={() => handleSearchInput()}>搜尋</button>
+      <img className={classes["logo-img"]} src={logo} alt="logo" />
+      <div className={classes["search-wrapper"]}>
+        <input
+          className={classes["search-input"]}
+          placeholder="探索好設計"
+          type="text"
+          onChange={(e) => setSearchInput(e.target.value)}
+          onKeyDown={(e) => handleInputKeyDown(e)}
+          value={searchInput}
+        />
+        <button
+          className={classes["search-button"]}
+          onClick={() => handleSearchInput()}
+        >
+          搜尋
+        </button>
       </div>
     </div>
   );

@@ -1,0 +1,6 @@
+
+@import "../../assets/css/globals.scss";
+
+.section-wrapper{
+  @include wrapper-container
+}

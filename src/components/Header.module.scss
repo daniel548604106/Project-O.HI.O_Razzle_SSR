@@ -1,3 +1,33 @@
+@import "../assets/css/globals.scss";
+
 .header-container {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  @include wrapper-container;
+  .logo-img {
+    width: 200px;
+    height: auto;
+  }
+  .search-wrapper {
+    display: flex;
+    .search-input {
+      padding: 10px;
+      border-radius: 5px 0px 0px 5px;
+      border: 1px solid gray;
+      &:focus {
+        outline: none;
+      }
+    }
+    .search-button {
+      padding: 10px;
+      background: #178fac;
+      color: white;
+      border: none;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
 }
