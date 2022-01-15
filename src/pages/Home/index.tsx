@@ -3,6 +3,7 @@ import './index.css';
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
+import { ProductCard } from '@/modules/productCard/ProductCard';
 import { fetchBanners, getDiscountedProducts } from '@/redux/actions/homeAction.ts';
 
 const Home = () => {
@@ -26,7 +27,11 @@ const Home = () => {
         ))}
       </div>
       {discountedProducts.map((product) => (
-        <div>{product._id}</div>
+        <ProductCard
+          customStyle={{ width: "300px", height: "300px" }}
+          key={product._id}
+          product={product}
+        />
       ))}
     </div>
   );

@@ -22,7 +22,8 @@
       "@/routes/*": ["routes/*"],
       "@/interfaces/*": ["interfaces/*"],
       "@/api/*": ["api/*"],
-      "@/utils/*": ["utils/*"]
+      "@/utils/*": ["utils/*"],
+      "@/modules/*": ["modules/*"]
     }
   },
   "include": ["src"]

@@ -5,7 +5,8 @@ import { useHistory } from 'react-router-dom';
 
 import classes from './productCard.module.scss';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, customStyle }) => {
+  const { width, height } = customStyle;
   const directToProduct = () => {
     console.log("hihi");
   };
@@ -15,7 +16,7 @@ const ProductCard = ({ product }) => {
   const isFavorite = true;
 
   return (
-    <div className={classes.root}>
+    <div style={{ width: width, height: height }} className={classes.root}>
       <div className={classes.label}>
         <p className={classes.new}>新品</p>
         {product.discountPrice && <p className={classes.discount}>{"qss"}</p>}
@@ -30,8 +31,7 @@ const ProductCard = ({ product }) => {
           <div className={classes.mainPicture}>
             <img
               className={classes.media}
-              loading="lazy"
-              data-src={product.images[0]}
+              src={product.images[0]}
               alt={product.name}
             />
 
@@ -80,3 +80,5 @@ const ProductCard = ({ product }) => {
 };
 
 export { ProductCard };
+
+export default ProductCard;
