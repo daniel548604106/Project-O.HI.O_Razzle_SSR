@@ -51,43 +51,54 @@ razzl examples link : https://github.com/jaredpalmer/razzle/tree/master/examples
 
   ```
 
-  - TypeScript
+  - TailwindCSS
+
+    Follow the following link to get tailwind setup
+    link : https://github.com/jaredpalmer/razzle/tree/master/examples/with-tailwindcss
+
+    App.js
 
     ```js
-
-    npm i razzle-plugin-typescript
-
+    import "tailwindcss/tailwind.css";
     ```
 
-  - Storybook
+- TypeScript
 
-    ```js
+  ```js
 
-    npx sb init
-    ```
+  npm i razzle-plugin-typescript
 
-    - Add Support for SCSS
+  ```
 
-    ```js
+- Storybook
 
-    webpackFinal: async (config, { configType }) => {
-    // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
-    // You can change the configuration based on that.
-    // 'PRODUCTION' is used when building the static version of storybook.
+  ```js
 
-    // Make whatever fine-grained changes you need
-    config.module.rules.push({
-     test: /\.scss$/,
-     use: ['style-loader', 'css-loader', 'sass-loader'],
-     include: path.resolve(__dirname, '../'),
-    });
+  npx sb init
+  ```
 
-    // Return the altered config
-    return config;
-    },
+  - Add Support for SCSS
+
+  ```js
+
+  webpackFinal: async (config, { configType }) => {
+  // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
+  // You can change the configuration based on that.
+  // 'PRODUCTION' is used when building the static version of storybook.
+
+  // Make whatever fine-grained changes you need
+  config.module.rules.push({
+   test: /\.scss$/,
+   use: ['style-loader', 'css-loader', 'sass-loader'],
+   include: path.resolve(__dirname, '../'),
+  });
+
+  // Return the altered config
+  return config;
+  },
 
 
-    ```
+  ```
 
 - Optimization
 

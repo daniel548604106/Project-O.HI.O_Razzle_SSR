@@ -19,6 +19,7 @@ const Home = () => {
   }, [discountedProducts]);
   return (
     <div>
+      <p className="text-red-500">sdfsdf</p>
       <ImageSlider slides={bannerSlides} />
       <section className={classes["section-wrapper"]}>
         <DiscountedProducts title="促銷專區" products={discountedProducts} />
